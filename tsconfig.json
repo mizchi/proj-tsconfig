@@ -14,10 +14,11 @@
         "tabSize": 2
     },
     "filesGlob": [
-        "./typings/bundle.d.ts"
+        "./typings/bundle.d.ts",
         "./src/**/*.ts"
     ],
     "files": [
+        "./typings/bundle.d.ts",
         "./src/foo.ts",
         "./src/index.ts"
     ]
