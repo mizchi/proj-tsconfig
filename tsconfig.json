@@ -8,12 +8,17 @@
         "target": "es5",
         "sourceMap": true
     },
+    "buildOnSave": true,
+    "formatCodeOptions": {
+        "indentSize": 2,
+        "tabSize": 2
+    },
     "filesGlob": [
-        "./src/**/*.ts",
-        "!node_modules/**/*.ts"
+        "./typings/bundle.d.ts"
+        "./src/**/*.ts"
     ],
     "files": [
-        "./src/Greeter.ts",
+        "./src/foo.ts",
         "./src/index.ts"
     ]
 }

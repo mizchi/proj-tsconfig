@@ -1,4 +1,7 @@
-import Greeter from './Greeter';
+/// <reference path="../typings/bundle.d.ts"/>
+import Foo from './foo';
+var foo = new Foo();
+var bar = require('./bar');
+bar();
 
-var greeter = new Greeter();
-greeter.sayHello();
+foo.sayHello();
