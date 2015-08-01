@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "outDir": "lib",
+        "target": "es5",
+        "sourceMap": true
+    },
+    "filesGlob": [
+        "./src/**/*.ts",
+        "!node_modules/**/*.ts"
+    ],
+    "files": [
+        "./src/Greeter.ts",
+        "./src/index.ts"
+    ]
+}
