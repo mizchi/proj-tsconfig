@@ -1,6 +1,40 @@
-import Foo from './foo';
-var foo = new Foo();
-var bar = require('./bar');
-bar();
+(<any>global).React = require('react');
+(<any>global).StoneSkin = require('stone-skin');
+(<any>global).Arda = require('arda');
+declare var React: any;
 
-foo.sayHello();
+interface Props {firstName: string; lastName: string;}
+interface State {age: number;}
+interface ComponentProps {greeting: string;}
+
+class MyContext extends Arda.Context<Props, State, ComponentProps> {
+  get component() {
+    return React.createClass({
+      mixins: [Arda.mixin],
+      render: function(){return React.createElement('h1', {}, this.props.greeting);}
+    });
+  }
+
+  initState(props){
+    // Can use promise  (State | Promise<State>)
+    return new Promise<State>(done => {
+      setTimeout(done({age:10}), 1000)
+    })
+  }
+  expandComponentProps(props, state) {
+    // Can use promise  (ComponentProps | Promise<ComponentProps>)
+    return {greeting: 'Hello, '+props.firstName+', '+state.age+' years old'}
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  var router = new Arda.Router(Arda.DefaultLayout, document.body);
+  // Unfortunately, initial props by router are not validated yet
+  // If you want, you can create your original router wrapper
+  router.pushContext(MyContext, {firstName: 'Jonh', lastName: 'Doe'})
+  .then(context => {
+    setInterval(() => {
+      context.state(state => {age: state.age+1}) // this is validated
+    }, 1000 * 60 * 60 * 24 * 360) // fire once by each year haha:)
+  });
+});

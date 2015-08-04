@@ -43,7 +43,7 @@ gulp.task 'browserify', watchify (watchify) ->
   gulp.src 'lib/index.js'
     .pipe watchify
       watch: watching
-    .pipe gulp.dest 'public/js/bundle.js'
+    .pipe gulp.dest 'public'
 
 gulp.task 'watchify', ['enable-watch-mode', 'browserify']
 gulp.task 'watch', ['build', 'enable-watch-mode', 'watchify'], ->

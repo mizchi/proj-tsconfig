@@ -15,11 +15,14 @@
     },
     "filesGlob": [
         "./typings/bundle.d.ts",
+        "./node_modules/stone-skin/*.d.ts",
+        "./node_modules/arda/*.d.ts",
         "./src/**/*.ts"
     ],
     "files": [
         "./typings/bundle.d.ts",
-        "./src/foo.ts",
+        "./node_modules/stone-skin/stone-skin.d.ts",
+        "./node_modules/arda/arda.d.ts",
         "./src/index.ts"
     ]
 }
